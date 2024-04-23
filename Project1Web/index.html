@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Sushi Adventure</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link  href="styles.css" rel="stylesheet">
+
+        <!-- Write (Limited to 300 words) 
+        
+            This webpage shows my love for the food sushi. It has a quick
+            intro to what sushi is, talks about some types of sushi, and
+            my persoanl connection with sushi.
+
+            I used lighter colors to bring a happy mood, but the colors
+            I chose are gentle so reading the text would be comfortable.
+            The images I used for the sushi were extra fancy to make it
+            look more appealing. I added a goofy personal picture to show
+            more about myself and my connection with food.
+
+            The webpage is responsive, specifically, the text sizes will
+            get smaller as the screen shrinks, and the images will stack
+            vertically when the screen is smaller. Padding was added 
+            thoughtfully to make the texts seem less cluttered.
+
+            For accesibility, every image has an alternate text description
+            of what the image is. There is a button on the bottom of the 
+            page to navigate back to the top of the page.
+
+            This was a fun and quick project to showcase my passion for
+            sushi. The biggest challenges for me was definitely formatting
+            the sections properly, making sure the margins and padding
+            were how I wanted them to be.
+        
+        --> 
+
+        <!-- Image Credits
+            Background Picture (sushibg2)
+            Picture was personally made
+            Sushi is from windows emoji keyboard
+
+            Personal Picture (hanson)
+            Picture provided by myself
+
+            Nigiri:
+            Airam Dato-on
+            Pexels
+            https://www.pexels.com/photo/a-sushi-on-the-table-9424914/
+
+            Temaki:
+            Matthew Bertelli
+            Pexels
+            https://www.pexels.com/photo/close-up-photo-of-a-sushi-cone-served-on-wooden-plate-13869890/
+
+            Uramaki:
+            Andre Saddi
+            Pexels
+            https://www.pexels.com/photo/salmon-sushi-on-a-black-tray-13265656/
+
+            Up Arrow:
+            Consumer Financial Protection Bureau, CC0, via Wikimedia Commons
+            https://commons.wikimedia.org/wiki/File:Arrow_Up_%2889601%29_-_The_Noun_Project.svg
+        -->
+
+    </head>
+    <body>
+
+        <header>
+
+            <h1 id="web-title"> Sushi Adventure </h1>
+
+        </header>
+
+        <main> 
+
+            <!-- Quick intro / summary -->
+            <section>
+                <p class="center-text sushi-summary">
+                    If I had to choose one food to eat for the rest of my life, it would be sushi. Sushi's
+                    directly translate to "it's sour." Sushi fundamentally contains rice and seafood. It often
+                    also has seaweed and other ingredients like imitation crab and vegetables.
+                    Originally, the main focus of sushi was just the 
+                    the rice; specifically rice with vinegar with some fish on top. In present day, sushi has evolved to be so 
+                    much more. 
+                </p>
+            </section>
+
+            <section class="sushi-info">
+
+                <!-- 3 Pictures of some types of sushi -->
+
+                <div class="left-half">
+                    <figure>
+                        <img class="smaller-picture" src=".\imgs\nigiri.jpg" alt="picture of nigiri" title="picture of nigiri">
+                        <figcaption>Nigiri</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img class="smaller-picture" src=".\imgs\uramaki.jpg" alt="picture of uramaki" title="picture of uramaki">
+                        <figcaption>Uramaki</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img class="smaller-picture" src=".\imgs\temaki.jpg" alt="picture of temaki" title="picture of temaki">
+                        <figcaption>Temaki</figcaption>
+                    </figure>
+                </div>
+
+                <!-- 3 Different types of sushi and their main points -->
+
+                <div class="right-half">
+                    <ul>
+                        <li><h3>Nigiri</h3></li>
+                        <p>
+                            Most people think of this when they hear sushi. It's simply rectangular shaped
+                            rice with typically a cut of fish on top. There maybe other types having tamago (sweet egg),
+                            crab, or other shellfish on top. A very simple dish that highlights the freshness of the 
+                            ingredient.
+                        </p>
+
+                        <li><h3>Uramaki</h3></li>
+                        <p>
+                            These are commonly known as sushi rolls. It is various types of ingredients which
+                            can include a selected fish, imitation crab, and vegetables that are wrapped around with
+                            seaweed. A key point is that the rice is on the outside. From here, there are rolls that 
+                            add more ingredients on top such as more fish, along with different sauce or sauces.
+                        </p>
+
+                        <li><h3>Temaki</h3></li>
+                        <p>
+                            Hand rolls are very appealing to the eye and are a cone shaped form of sushi. While it may have 
+                            similar ingredients as the Uramaki, it includes less of them for each hand roll so that the fish
+                            inside is emphasized more. Nigiri would be the best form to enjoy purely the fish with rice, but 
+                            Temaki includes a little more texture and flavor. Also, it's fun it eat!
+                        </p>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- Quick end / remark -->
+            <!-- Flex, full screen pic and paragraph side by side, on mobile they are stacked on each other -->
+            <section class="conclusion">
+
+                <!-- Add personal pic -->
+                <div class="left-half">
+                    <img class="bigger-picture" src=".\imgs\hanson.JPG" alt="picture of hanson" title="picture of me (hanson)">
+                </div>
+
+                <!-- Add ending comment -->
+                <div class="right-half">
+                    <p class="center-text box-paragraph">
+                        Food is great. I like a lot of different types of food, but sushi has a special place
+                        in my stomach. I've started from the humble California roll and have reached up to Uni Gunkan.
+                        With each level up, the prices soar to heights unimaginable. I've only scratched the surface of the 
+                        sushi world and hope to explore more of it in the future. With the limits of my wallet, I will 
+                        continue to enjoy the paradise of sushi.
+                    </p>
+                </div>
+
+            </section>
+
+            <div class="button-container">
+                <!-- Button to go to top -->
+                <a href="">
+                    <img id="top-button" src=".\imgs\uparrow.png" alt="up-arrow" title="picture of up arrow">
+                </a>
+            </div>
+            
+        </main>
+
+        <footer class="center-text">
+            2024 &copy; Hanson Lau 
+        </footer>
+    
+    </body>
+</html>
