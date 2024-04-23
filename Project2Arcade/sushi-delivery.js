@@ -5,8 +5,6 @@ let currentIndex;
 let time = 0;
 let timerId;
 
-let carsCurrentIndicies = [];
-
 // getting all cells of the grid
 const cells = document.getElementsByClassName("cell");
 
@@ -43,22 +41,49 @@ document.addEventListener('DOMContentLoaded', () => {
             // let rand = Math.floor(Math.random() * (501)) + 200;
             // console.log("Interval: " + rand);
 
-            lane1 = setInterval(moveCars, 1000);
-            // lane2
-            // lane3
+            // the longer the grid, the faster the speed
+            let speedMultiplier = 1/gridLength
 
-            // lane4
-            // lane5
-            // lane6
+            lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            lane2 = setInterval(moveLane2, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            lane3 = setInterval(moveLane3, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+
+            lane5 = setInterval(moveLane5, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            lane6 = setInterval(moveLane6, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            lane7 = setInterval(moveLane7, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
             
         }
     });
 
 });
 
-function moveCars() {
+function moveLane1() {
+    moveCars(1);
+}
 
-    for (let i = 0; i < cells.length; i++) {
+function moveLane2() {
+    moveCars(2);
+}
+
+function moveLane3() {
+    moveCars(3);
+}
+
+function moveLane5() {
+    moveCars(5);
+}
+
+function moveLane6() {
+    moveCars(6);
+}
+
+function moveLane7() {
+    moveCars(7);
+}
+
+function moveCars(laneNum) {
+
+    for (let i = laneNum * gridLength; i < (laneNum * gridLength) + gridLength; i++) {
         if (cells[i].classList.contains("red-car-right")) {
             cells[i].classList.remove("red-car-right");
 
@@ -114,9 +139,19 @@ function initializeGrid() {
             // skip safe lane
             continue;
         }
-        carsCurrentIndicies[i] = i * gridLength;
+        beginningOfLane = i * gridLength;
         // setting cars up
-        cells[carsCurrentIndicies[i]].classList.add("red-car-right");
+        cells[beginningOfLane].classList.add("red-car-right");
+
+        // every grid length/width of 5 add a car
+        let sub5gridLength = gridLength - 5;
+        let count = 0;
+        while (sub5gridLength > 0) {
+            count++;
+            cells[beginningOfLane + (count * 5)].classList.add("red-car-right");
+            sub5gridLength = sub5gridLength - 5;
+        }
+
     }
 
 
@@ -197,15 +232,12 @@ function stopGame() {
     timerId = undefined;
 
     clearInterval(lane1);
-}
+    clearInterval(lane2);
+    clearInterval(lane3);
 
-/*
-
-moving car to right
-*/
-
-function moveCar1() {
-
+    clearInterval(lane5);
+    clearInterval(lane6);
+    clearInterval(lane7);
 }
 
 
