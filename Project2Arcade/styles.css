@@ -1,0 +1,107 @@
+
+body {
+  background-color: rgb(248, 207, 132);
+}
+
+#game-window {
+  display: flex;
+  justify-content: center;
+}
+
+#grid {
+  margin-top: 10em;
+}
+
+.lane {
+  display: flex;
+}
+
+.goal-cell {
+  height: 35px;
+  width: 35px;
+  background-color: black;
+  border: 1px solid gray;
+}
+
+.goal-cell:nth-child(odd) {
+  background-color: white;
+}
+
+.safe-cell {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(51, 100, 50);
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.car-lane-cell {
+  height: 35px;
+  width: 35px;
+  background-color: gray;
+  border-top: 1px solid black;
+  border-left: .5px solid black;
+  border-right: .5px solid black;
+  border-bottom: 1px solid black;
+}
+
+.start-cell {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(76, 189, 230);
+  border: 1px solid rgb(0, 0, 0);
+} 
+
+.up {
+  background-image: url("./imgs/player-car.png");
+}
+
+.red-car-right {
+  background-image: url("./imgs/red-car-right.png");
+}
+
+
+/* .grid {
+    border: 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    height: 180px;
+    width: 180px;
+  }
+  
+  .grid div {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .ending-block {
+    background-color: red;
+  }
+  
+  .starting-block {
+    background-color: blue;
+  }
+  
+  .c1 {
+    background-color: black;
+  }
+  
+  .c2,
+  .c3 {
+    background-color: grey;
+  }
+  
+  .l1,
+  .l2,
+  .l3 {
+    background-color: brown;
+  }
+  
+  .l4,
+  .l5 {
+    background-color: lightblue;
+  }
+  
+  .frog {
+    background-color: green;
+  } 
+  */
