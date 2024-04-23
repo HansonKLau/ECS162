@@ -1,5 +1,4 @@
-
-let gridLength = 5;
+let gridLength = 10;
 let numberOfLanes = 9;
 let currentIndex;
 let time = 0;
@@ -9,9 +8,6 @@ let timerId;
 const cells = document.getElementsByClassName("cell");
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // getting the DOM elements to set up grid
-    // const all_cells = document.querySelector('.grid div');
 
     // creating board
     createGrid();
@@ -37,20 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
             document.addEventListener('keydown', movePlayer);
             timerId = setInterval(updateTime, 1000);
 
-
-            // let rand = Math.floor(Math.random() * (501)) + 200;
-            // console.log("Interval: " + rand);
-
             // the longer the grid, the faster the speed
             let speedMultiplier = 1/gridLength
 
-            lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
-            lane2 = setInterval(moveLane2, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
-            lane3 = setInterval(moveLane3, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            // lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
+            lane2 = setInterval(moveLane2, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
+            lane3 = setInterval(moveLane3, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
 
-            lane5 = setInterval(moveLane5, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
-            lane6 = setInterval(moveLane6, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
-            lane7 = setInterval(moveLane7, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+            lane5 = setInterval(moveLane5, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
+            lane6 = setInterval(moveLane6, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
+            lane7 = setInterval(moveLane7, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
             
         }
     });
@@ -141,20 +134,20 @@ function initializeGrid() {
         }
         beginningOfLane = i * gridLength;
         // setting cars up
-        cells[beginningOfLane].classList.add("red-car-right");
 
         // every grid length/width of 5 add a car
         let sub5gridLength = gridLength - 5;
-        let count = 0;
-        while (sub5gridLength > 0) {
-            count++;
-            cells[beginningOfLane + (count * 5)].classList.add("red-car-right");
+        // let count = 0;
+        while (sub5gridLength >= 0) {
+            // count++;
+            let offset = Math.floor(Math.random() * (gridLength));
+            if (cells[beginningOfLane + offset].classList.contains("red-car-right")) {
+                offset = Math.floor(Math.random() * (gridLength));
+            }
+            cells[beginningOfLane + offset].classList.add("red-car-right");
             sub5gridLength = sub5gridLength - 5;
         }
-
     }
-
-
 }
 
 // adding functionality to move player's car
@@ -240,7 +233,6 @@ function stopGame() {
     clearInterval(lane7);
 }
 
-
 // moving obstacle cars left
 function moveCarLeft(carLeft) {
     switch (true) {
@@ -297,221 +289,3 @@ function createGrid() {
         lanes[8].appendChild(startCell);
     }
 }
-
-
-// function testing() {
-
-//     const test = document.getElementsByClassName("test");
-
-//     for (let i = 0; i < test.length; i++) {
-//         for (let j = 0; j < gridLength; j++) {
-//             const testCell = document.createElement("div");
-//             testCell.classList.add("test-cell");
-//             test[i].appendChild(testCell);
-//         }
-//     }
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const squares = document.querySelectorAll('.grid div')
-//     const timeLeft = document.querySelector('#time-passed')
-//     const result = document.querySelector('#result')
-//     const startBtn = document.querySelector('#button')
-//     const carsLeft = document.querySelectorAll('.car-left')
-//     const carsRight = document.querySelectorAll('.car-right')
-//     const logsLeft = document.querySelectorAll('.log-left')
-//     const logsRight = document.querySelectorAll('.log-right')
-//     const width = 9
-//     let currentIndex = 76
-//     let currentTime = 20
-//     let timerId
-
-
-//     //render frog on starting block
-//     squares[currentIndex].classList.add('frog')
-
-//     //write a function that will move the frog
-//     function moveFrog(e) {
-//         squares[currentIndex].classList.remove('frog')
-//         switch(e.keyCode) {
-//             case 37:
-//                 if(currentIndex % width !== 0) currentIndex -=1
-//                 break
-//             case 38:
-//                 if(currentIndex - width >=0) currentIndex -= width
-//                 break
-//             case 39: 
-//                 if(currentIndex % width < width -1) currentIndex +=1
-//                 break
-//             case 40:
-//                 if(currentIndex + width < width * width) currentIndex += width
-//                 break
-//         }
-//         squares[currentIndex].classList.add('frog')
-//         lose()
-//         win()
-//     }   
-
-//     //move cars
-//     function autoMoveCars() {
-//         carsLeft.forEach(carLeft => moveCarLeft(carLeft))
-//         carsRight.forEach(carRight => moveCarRight(carRight))
-//     }
-
-//     //move the car left on a time loop
-//     function moveCarLeft(carLeft) {
-//         switch (true) {
-//             case carLeft.classList.contains('c1'):
-//                 carLeft.classList.remove('c1')
-//                 carLeft.classList.add('c2')
-//                 break
-//             case carLeft.classList.contains('c2'):
-//                 carLeft.classList.remove('c2')
-//                 carLeft.classList.add('c3')
-//                 break
-//             case carLeft.classList.contains('c3'):
-//                 carLeft.classList.remove('c3')
-//                 carLeft.classList.add('c1')
-//                 break
-//         }
-//     }
-
-//     //move the car right on a time loop
-//     function moveCarRight(carRight) {
-//         switch (true) {
-//             case carRight.classList.contains('c1'):
-//                 carRight.classList.remove('c1')
-//                 carRight.classList.add('c3')
-//                 break
-//             case carRight.classList.contains('c2'):
-//                 carRight.classList.remove('c2')
-//                 carRight.classList.add('c1')
-//                 break
-//             case carRight.classList.contains('c3'):
-//                 carRight.classList.remove('c3')
-//                 carRight.classList.add('c2')
-//                 break
-//         }
-//     }
-
-
-//     //move the logs
-//     function autoMoveLogs() {
-//         logsLeft.forEach(logLeft => moveLogLeft(logLeft))
-//         logsRight.forEach(logRight => moveLogRight(logRight))
-//     }
-
-//     //move the log left on a time loop
-//     function moveLogLeft(logLeft) {
-//         switch (true) {
-//             case logLeft.classList.contains('l1'):
-//                 logLeft.classList.remove('l1')
-//                 logLeft.classList.add('l2')
-//                 break
-//             case logLeft.classList.contains('l2'):
-//                 logLeft.classList.remove('l2')
-//                 logLeft.classList.add('l3')
-//                 break
-//             case logLeft.classList.contains('l3'):
-//                 logLeft.classList.remove('l3')
-//                 logLeft.classList.add('l4')
-//                 break
-//             case logLeft.classList.contains('l4'):
-//                 logLeft.classList.remove('l4')
-//                 logLeft.classList.add('l5')
-//                 break
-//             case logLeft.classList.contains('l5'):
-//                 logLeft.classList.remove('l5')
-//                 logLeft.classList.add('l1')
-//                 break
-//         }
-//     }
-
-//      //move the log left on a time loop
-//      function moveLogRight(logRight) {
-//         switch (true) {
-//             case logRight.classList.contains('l1'):
-//                 logRight.classList.remove('l1')
-//                 logRight.classList.add('l5')
-//                 break
-//             case logRight.classList.contains('l2'):
-//                 logRight.classList.remove('l2')
-//                 logRight.classList.add('l1')
-//                 break
-//             case logRight.classList.contains('l3'):
-//                 logRight.classList.remove('l3')
-//                 logRight.classList.add('l2')
-//                 break
-//             case logRight.classList.contains('l4'):
-//                 logRight.classList.remove('l4')
-//                 logRight.classList.add('l3')
-//                 break
-//             case logRight.classList.contains('l5'):
-//                 logRight.classList.remove('l5')
-//                 logRight.classList.add('l4')
-//                 break
-//         }
-//     }
-
-//     //rules to win Frogger
-//     function win() {
-//         if (squares[4].classList.contains('frog')) {
-//             result.innerHTML = 'YOU WON'
-//             squares[currentIndex].classList.remove('frog')
-//             clearInterval(timerId)
-//             document.removeEventListener('keyup', moveFrog)
-//         }
-//     }
-
-//     //rules to lose Frogger 
-//     function lose () {
-//         if ((currentTime === 0) || (squares[currentIndex].classList.contains('c1'))
-//         || (squares[currentIndex].classList.contains('l5'))
-//         || (squares[currentIndex].classList.contains('l4'))) {
-//             result.innerHTML = 'YOU LOSE'
-//             squares[currentIndex].classList.remove('frog')
-//             clearInterval(timerId)
-//             document.removeEventListener('keyup', moveFrog)
-//         }
-//     }
-
-//     //move the frog when its on the log moving left
-//     function moveWithLogLeft() {
-//         if (currentIndex >= 27 && currentIndex < 35) {
-//             squares[currentIndex].classList.remove('frog')
-//             currentIndex += 1
-//             squares[currentIndex].classList.add('frog')
-//         }
-//     }
-
-//     //move the frog when its on the log moving right
-//     function moveWithLogRight() {
-//         if (currentIndex > 18 && currentIndex <= 26) {
-//             squares[currentIndex].classList.remove('frog')
-//             currentIndex -= 1
-//             squares[currentIndex].classList.add('frog')
-//         }
-//     }
-
-//     //all the function that move pieces
-//     function movePieces() {
-//         currentTime--
-//         timeLeft.textContent = currentTime
-//         autoMoveCars()
-//         autoMoveLogs()
-//         moveWithLogLeft()
-//         moveWithLogRight()
-//         lose()
-//     }
-
-//     //to start and pause the game
-//     startBtn.addEventListener('click', () => {
-//         if(timerId) {
-//             clearInterval(timerId)
-//         }   else {
-//             timerId = setInterval(movePieces, 1000)
-//             document.addEventListener('keyup', moveFrog)
-//         }
-//     })
-
-// })
