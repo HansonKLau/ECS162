@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frogger game</title>
     <link rel="stylesheet" href="sushi-delivery.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="sushi-delivery.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
 
     <!-- 
         Open-Source code reference:
@@ -22,10 +25,35 @@
   </head>
   <body>
 
-    <div class = "game-title"> Sushi Delivery </div>
+    <div class = "title"> Sushi Delivery </div>
 
+    <div id = "whole-nav">
+      <ul id = "nav-bar">
+          <li>
+              <a href="about.html">About</a>
+          </li>
+          <hr class= "small-line">
+          <li>
+              <a href="index.html">Home</a>
+          </li>
+          <hr id = "big-line">
+          <li>
+              <a href="sushi-delivery.html">Sushi Delivery</a>
+          </li>
+          <hr class= "small-line">
+          <li>
+              <a href="sushi-stack.html">Sushi Stack</a>
+          </li>
+          <hr class= "small-line">
+          <li>
+              <a href="menu-match.html">Menu Match</a>
+          </li>
+      </ul>
 
-
+      <div class = "reveal-nav-container">
+          <button id="reveal-nav"> ||| </button>
+      </div>
+  </div>
 
     <div class = "difficulty-selection">
       <div class = "space-around">
