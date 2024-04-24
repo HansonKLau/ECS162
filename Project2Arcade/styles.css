@@ -3,13 +3,58 @@ body {
   background-color: rgb(248, 207, 132);
 }
 
+.game-title{
+  text-align: center;
+  font-size: 3em;
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+.difficulty-selection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start-button {
+  color: blue;
+  padding: .5em;
+  margin-right: 1em;
+}
+
+.timer h3 {
+  margin-left: 1em;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+#result {
+  padding: 0;
+  font-size: 2em;
+  text-align: center;
+}
+
 #game-window {
   display: flex;
   justify-content: center;
 }
 
 #grid {
-  margin-top: 10em;
+  margin-top: 4em;
 }
 
 .lane {
@@ -59,49 +104,6 @@ body {
   background-image: url("./imgs/red-car-right.png");
 }
 
-
-/* .grid {
-    border: 1px solid;
-    display: flex;
-    flex-wrap: wrap;
-    height: 180px;
-    width: 180px;
-  }
-  
-  .grid div {
-    height: 20px;
-    width: 20px;
-  }
-  
-  .ending-block {
-    background-color: red;
-  }
-  
-  .starting-block {
-    background-color: blue;
-  }
-  
-  .c1 {
-    background-color: black;
-  }
-  
-  .c2,
-  .c3 {
-    background-color: grey;
-  }
-  
-  .l1,
-  .l2,
-  .l3 {
-    background-color: brown;
-  }
-  
-  .l4,
-  .l5 {
-    background-color: lightblue;
-  }
-  
-  .frog {
-    background-color: green;
-  } 
-  */
+.hide {
+  display: none;
+}

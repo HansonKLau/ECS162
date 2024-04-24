@@ -1,13 +1,28 @@
-let gridLength = 10;
+let gridLength = 5;
 let numberOfLanes = 9;
 let currentIndex;
-let time = 0;
+let time = 0.0;
 let timerId;
 
 // getting all cells of the grid
 const cells = document.getElementsByClassName("cell");
 
+function restart(e) {
+    if (e.keyCode === 82) {
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.add("hide");
+        stopGame();
+        destroyGrid();
+        createGrid();
+        initializeGrid();
+        const currentTime = document.getElementById("seconds-elapsed");
+        currentTime.textContent = 0;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    document.addEventListener('keydown', restart);
 
     // creating board
     createGrid();
@@ -15,9 +30,58 @@ document.addEventListener('DOMContentLoaded', () => {
     // setting starting positions
     initializeGrid();
 
+    const small = document.getElementById("grid5");
+    const medium = document.getElementById("grid10");
+    const large = document.getElementById("grid15");
+
+    small.addEventListener('click', () => {
+
+        if (timerId) {
+            stopGame();
+        }
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.add("hide");
+        gridLength = 5;
+        destroyGrid();
+        createGrid();
+        initializeGrid();
+
+    });
+
+    medium.addEventListener('click', () => {
+
+        if (timerId) {
+            stopGame();
+        }
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.add("hide");
+        gridLength = 10;
+        destroyGrid();
+        createGrid();
+        initializeGrid();
+
+    });
+
+    large.addEventListener('click', () => {
+
+        if (timerId) {
+            stopGame();
+        }
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.add("hide");
+        gridLength = 15;
+        destroyGrid();
+        createGrid();
+        initializeGrid();
+
+    });
+
+    // hide results
+    const resultContainer = document.getElementsByClassName("result-container");
+    resultContainer[0].classList.add("hide");
+
     //to start and pause the game
     const startBtn = document.getElementById("start-button");
-
     startBtn.addEventListener('click', () => {
         console.log("clicked");
 
@@ -28,10 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // setting starting positions
             initializeGrid();
 
-            console.log("starting timer");
+            const resultContainer = document.getElementsByClassName("result-container");
+            resultContainer[0].classList.add("hide");
+
+            const timeButton = document.getElementById("start-button");
+            timeButton.textContent = "stop";
+
             time = 0;
+
+            console.log("starting timer");
+            const currentTime = document.getElementById("seconds-elapsed");
+            currentTime.textContent = time;
+
             document.addEventListener('keydown', movePlayer);
-            timerId = setInterval(updateTime, 1000);
+            timerId = setInterval(updateTime, 100);
 
             // the longer the grid, the faster the speed
             let speedMultiplier = 1/gridLength
@@ -98,9 +172,9 @@ function moveCars(laneNum) {
 
 function updateTime() {
     
-    currentTime = document.getElementById("seconds-elapsed");
-    time = time + 1;
-    currentTime.textContent = time;
+    const currentTime = document.getElementById("seconds-elapsed");
+    time = time + 0.1;
+    currentTime.textContent = time.toFixed(1);
 
 }
 
@@ -197,6 +271,14 @@ function win() {
     }
 
     if (won) {
+        const result = document.getElementById("result");
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.remove("hide");
+        if (time == 1) {
+            result.textContent = "Nice! You delivered the sushi in " + time.toFixed(1) + " second!";
+        } else {
+            result.textContent = "Nice! You delivered the sushi in " + time.toFixed(1) + " seconds!";
+        }
         stopGame();
     }
 
@@ -214,15 +296,25 @@ function lose() {
     }
 
     if (lost) {
+        const result = document.getElementById("result");
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.remove("hide");
+
+        result.textContent = "Darn, I hope the sushi is still okay...";
+
         stopGame();
     }
 }
 
 function stopGame() {
     console.log("stopped");
+
     clearInterval(timerId);
     document.removeEventListener('keydown', movePlayer);
     timerId = undefined;
+
+    const timeButton = document.getElementById("start-button");
+    timeButton.textContent = "start";
 
     clearInterval(lane1);
     clearInterval(lane2);
@@ -231,6 +323,8 @@ function stopGame() {
     clearInterval(lane5);
     clearInterval(lane6);
     clearInterval(lane7);
+
+
 }
 
 // moving obstacle cars left
@@ -249,6 +343,35 @@ function moveCarLeft(carLeft) {
             carLeft.classList.add('c1')
             break
     }
+}
+
+function destroyGrid() {
+    const cellLength = cells.length;
+
+    for (let i = 0; i < cellLength; i++) {
+        cells[0].remove();  
+    }
+    // const lanes = document.getElementsByClassName("lane");
+
+    // console.log("cells: " + cellLength);
+    // console.log("lanes: " + lanes.length);
+
+
+    // let j = 0;
+    // for (let i = 0; i < cellLength; i++) {
+
+    //     if (i != 0 && i % cellLength/9 == 0) {
+    //         console.log("lane" + i)
+    //         j++;
+    //     }
+
+    //     if (j == 9) {
+    //         break;
+    //     }
+
+    //     lanes[j].remove(cells[i]);
+
+    // }
 }
 
 function createGrid() {
