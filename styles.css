@@ -1,0 +1,142 @@
+
+/* .heading {
+    display: flex;
+    justify-content: center;
+}
+
+.trapezoid {
+    position: absolute;
+    top: 10px;
+    border-top: 12vw solid rgb(140, 229, 167);
+    border-left: 30vw solid transparent;
+    border-right: 30vw solid transparent;
+    height: 10%;
+    width: 30em;
+    z-index: -1;
+} */
+* {
+    margin: 0;
+}
+
+body {
+    background-color: rgb(59, 160, 238);
+
+}
+
+.title {
+    /* background-color: rgb(51, 116, 246); */
+    background-image: linear-gradient(rgb(13, 85, 231), rgb(59, 160, 238));
+
+    margin: 0;
+
+    text-align: center;
+    padding: 0.25em;
+
+    font-size: 7em;
+
+    font-family: "Bebas Neue", sans-serif;
+    /* font-weight: 400; */
+    font-style: normal;
+}
+
+#whole-nav {
+    display: flex;
+}
+
+.reveal-nav-container {
+    display: flex;
+    align-items: center;
+
+    z-index: 2;
+}
+
+#reveal-nav {
+    height: 20px;
+    background-color: rgb(197, 83, 83);
+    padding: 20px 10px;
+
+    margin-top: 25em;
+    margin-left: 12.5em;
+
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+    font-size: 1em;
+
+    padding-left: 5px;
+
+    border: 2px solid black;
+    border-left: none;
+
+    transition: left 1s ease;
+    position: fixed;
+}
+
+#reveal-nav:hover{
+    background-color: rgb(140, 61, 61);
+}
+
+#reveal-nav.hide{
+    left: -12.5em;
+}
+
+#nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 25em;
+
+    border-top: 5px solid orange;
+    border-right: 5px solid orange;
+    border-bottom: 5px solid orange;
+
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-color: rgb(239, 184, 81);
+
+    transition: 1s;
+    position: fixed;
+}
+
+#nav-bar.hide {
+    left: -15em;
+}
+  
+/* #nav-bar.show {
+    left: 0;
+} */
+
+li {
+    text-align: center;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5em;
+  }
+
+#big-line {
+    border-top: 2px solid black;
+    margin: 0px 25px;
+}
+
+.small-line {
+    border-top: 1px solid black;
+    margin: 0px 50px;
+}
+
+/* .test{
+    margin-top: 500em;
+    height: 50em;
+    background-color: blueviolet;
+    text-align: center;
+} */
