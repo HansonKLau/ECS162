@@ -10,7 +10,7 @@ let updateTimerId;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    document.addEventListener('keydown', checkRestart);
+    document.addEventListener('keydown', checkKey);
 
     const canvas = document.getElementById('game-window');
     const context = canvas.getContext('2d');
@@ -45,10 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const sushiPiece = new Image();
         sushiPiece.height = 60;
         sushiPiece.width = 120;
-        // let index = Math.floor(Math.random() * sushiImages.length);
-        let index = numSushiStacked % 6;
+        let index = Math.floor(Math.random() * sushiImages.length);
         sushiPiece.src = sushiImages[index];
-        // sushiPiece.src = ".\\imgs\\tamago.png";
 
         let x = 0;
         let y = 20;
@@ -69,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function redrawPiece() {
             if (previousY != 0) {
-                // console.log("prev image: " + previousImg);
                 const prevSushiPiece = new Image();
                 prevSushiPiece.height = 60;
                 prevSushiPiece.width = 120;
@@ -105,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // successful stack
                     numSushiStacked++;
                     clearInterval(dropTimerId);
-                    // xspeed += 2;
+                    xspeed += 2;
 
                     // check if player won (this was 7th stack)
                     if (numSushiStacked == 7) {
@@ -215,9 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
         background(canvas.height);
     }
 
-    function checkRestart(e) {
+    function checkKey(e) {
         if (e.keyCode === 82) {
             restart()
+        } else if (e.keyCode === 83) {
+            start()
         }
     }
 

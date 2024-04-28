@@ -7,7 +7,7 @@ let timerId;
 // getting all cells of the grid
 const cells = document.getElementsByClassName("cell");
 
-function restart(e) {
+function checkKey(e) {
     if (e.keyCode === 82) {
         const resultContainer = document.getElementsByClassName("result-container");
         resultContainer[0].classList.add("hide");
@@ -17,12 +17,14 @@ function restart(e) {
         initializeGrid();
         const currentTime = document.getElementById("seconds-elapsed");
         currentTime.textContent = 0;
+    } else if (e.keyCode === 83) {
+        start();
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    document.addEventListener('keydown', restart);
+    document.addEventListener('keydown', checkKey);
 
     // creating board
     createGrid();
@@ -82,56 +84,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //to start and pause the game
     const startBtn = document.getElementById("start-button");
-    startBtn.addEventListener('click', () => {
-        console.log("clicked");
-
-        if (timerId) {
-            stopGame();
-
-        }   else {
-            // setting starting positions
-            initializeGrid();
-
-            const resultContainer = document.getElementsByClassName("result-container");
-            resultContainer[0].classList.add("hide");
-
-            const timeButton = document.getElementById("start-button");
-            timeButton.textContent = "stop";
-
-            time = 0;
-
-            console.log("starting timer");
-            const currentTime = document.getElementById("seconds-elapsed");
-            currentTime.textContent = time;
-
-            document.addEventListener('keydown', movePlayer);
-            timerId = setInterval(updateTime, 100);
-
-            // the longer the grid, the faster the speed
-            let baseSpeed;
-
-            if (gridLength == 5) {
-                baseSpeed = 500;
-
-            } else if (gridLength == 10) {
-                baseSpeed = 250;
-
-            } else {
-                baseSpeed = 200;
-            }
-
-            // lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
-            lane1 = setInterval(moveLane1, baseSpeed - Math.floor(Math.random() * 51));
-            lane2 = setInterval(moveLane2, baseSpeed - Math.floor(Math.random() * 51));
-            lane3 = setInterval(moveLane3, baseSpeed - Math.floor(Math.random() * 51));
-
-            lane5 = setInterval(moveLane5, baseSpeed - Math.floor(Math.random() * 51));
-            lane6 = setInterval(moveLane6, baseSpeed - Math.floor(Math.random() * 51));
-            lane7 = setInterval(moveLane7, baseSpeed - Math.floor(Math.random() * 51));
-            
-        }
-    });
+    startBtn.addEventListener('click', start);
 });
+
+function start() {
+    if (timerId) {
+        stopGame();
+
+    }   else {
+        // setting starting positions
+        initializeGrid();
+
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.add("hide");
+
+        const timeButton = document.getElementById("start-button");
+        timeButton.textContent = "stop";
+
+        time = 0;
+
+        console.log("starting timer");
+        const currentTime = document.getElementById("seconds-elapsed");
+        currentTime.textContent = time;
+
+        document.addEventListener('keydown', movePlayer);
+        timerId = setInterval(updateTime, 100);
+
+        // the longer the grid, the faster the speed
+        let baseSpeed;
+
+        if (gridLength == 5) {
+            baseSpeed = 500;
+
+        } else if (gridLength == 10) {
+            baseSpeed = 250;
+
+        } else {
+            baseSpeed = 200;
+        }
+
+        // lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
+        lane1 = setInterval(moveLane1, baseSpeed - Math.floor(Math.random() * 51));
+        lane2 = setInterval(moveLane2, baseSpeed - Math.floor(Math.random() * 51));
+        lane3 = setInterval(moveLane3, baseSpeed - Math.floor(Math.random() * 51));
+
+        lane5 = setInterval(moveLane5, baseSpeed - Math.floor(Math.random() * 51));
+        lane6 = setInterval(moveLane6, baseSpeed - Math.floor(Math.random() * 51));
+        lane7 = setInterval(moveLane7, baseSpeed - Math.floor(Math.random() * 51));
+        
+    }
+}
 
 function moveLane1() {
     moveWoman(1);
