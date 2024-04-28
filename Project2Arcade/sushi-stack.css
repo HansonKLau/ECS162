@@ -1,0 +1,40 @@
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+color: blue;
+padding: .5em;
+margin-right: 1em;
+}
+
+.timer h3 {
+margin-left: 1em;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  
+#result {
+    padding: 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+.canvas-container {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+
+}
+
+#game-window{
+    background-color: #aae0fb;
+
+}

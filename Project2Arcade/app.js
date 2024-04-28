@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navButton.addEventListener("click", () => {
 
-        console.log("hello");
-
         navBar.classList.toggle("hide");
         navButton.classList.toggle("hide");
 

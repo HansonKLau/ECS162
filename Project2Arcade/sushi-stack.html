@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sushi Stack</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="sushi-stack.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="sushi-stack.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
@@ -46,25 +47,23 @@
         </ul>
   
         <div class = "reveal-nav-container">
-            <button id="reveal-nav"> ||| </button>
+            <button id="reveal-nav">||</button>
         </div>
     </div>
 
+    <div class = "timer">
+        <button id="start-button"> Start </button>
+        <h3>Seconds elapsed: <span id="seconds-elapsed">0</span></h3>
+    </div>
 
-    <div id="game-window">
-        <div id="grid">
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-        </div>
+    <div class = "result-container">
+        <h3 id="result"></h3>
       </div>
+
+    <div class="canvas-container">
+        <canvas id="game-window" width="500" height="500"></canvas>
+    </div>
+
 
   </body>
 

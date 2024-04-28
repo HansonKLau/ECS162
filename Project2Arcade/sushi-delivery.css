@@ -62,48 +62,58 @@ body {
 }
 
 .goal-cell {
-  height: 35px;
-  width: 35px;
-  background-color: black;
-  border: 1px solid gray;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(253, 186, 62);
+  /* border: 1px solid gray; */
 }
 
 .goal-cell:nth-child(odd) {
-  background-color: white;
+  background-color: rgb(196, 144, 47);
+
 }
 
 .safe-cell {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   background-color: rgb(51, 100, 50);
-  border: 1px solid rgb(0, 0, 0);
+  /* border: 1px solid rgb(0, 0, 0); */
 }
 
 .car-lane-cell {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   background-color: gray;
   border-top: 1px solid black;
-  border-left: .5px solid black;
-  border-right: .5px solid black;
+  /* border-left: .5px solid black; */
+  /* border-right: .5px solid black; */
   border-bottom: 1px solid black;
 }
 
 .start-cell {
-  height: 35px;
-  width: 35px;
-  background-color: rgb(76, 189, 230);
-  border: 1px solid rgb(0, 0, 0);
+  height: 40px;
+  width: 40px;
+  background-color: rgb(230, 109, 76);
+  /* border: 1px solid rgb(0, 0, 0); */
 } 
 
 .up {
-  background-image: url("./imgs/player-car.png");
+  /* background-image: url("./imgs/player-car.png"); */
+  background-image: url("./imgs/chef.png");
 }
 
-.red-car-right {
-  background-image: url("./imgs/red-car-right.png");
+.man-right {
+  background-image: url("./imgs/man1.png");
+}
+
+.woman-left {
+  background-image: url("./imgs/woman1.png");
 }
 
 .hide {
   display: none;
+}
+
+.table {
+  background-image: url("./imgs/table.png");
 }

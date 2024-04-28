@@ -108,63 +108,101 @@ document.addEventListener('DOMContentLoaded', () => {
             timerId = setInterval(updateTime, 100);
 
             // the longer the grid, the faster the speed
-            let speedMultiplier = 1/gridLength
+            let baseSpeed;
+
+            if (gridLength == 5) {
+                baseSpeed = 500;
+
+            } else if (gridLength == 10) {
+                baseSpeed = 250;
+
+            } else {
+                baseSpeed = 200;
+            }
 
             // lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 200);
-            lane1 = setInterval(moveLane1, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
-            lane2 = setInterval(moveLane2, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
-            lane3 = setInterval(moveLane3, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
+            lane1 = setInterval(moveLane1, baseSpeed - Math.floor(Math.random() * 51));
+            lane2 = setInterval(moveLane2, baseSpeed - Math.floor(Math.random() * 51));
+            lane3 = setInterval(moveLane3, baseSpeed - Math.floor(Math.random() * 51));
 
-            lane5 = setInterval(moveLane5, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
-            lane6 = setInterval(moveLane6, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
-            lane7 = setInterval(moveLane7, Math.floor(Math.random() * (501 * speedMultiplier)) + 900*speedMultiplier);
+            lane5 = setInterval(moveLane5, baseSpeed - Math.floor(Math.random() * 51));
+            lane6 = setInterval(moveLane6, baseSpeed - Math.floor(Math.random() * 51));
+            lane7 = setInterval(moveLane7, baseSpeed - Math.floor(Math.random() * 51));
             
         }
     });
-
 });
 
 function moveLane1() {
-    moveCars(1);
+    moveWoman(1);
 }
 
 function moveLane2() {
-    moveCars(2);
+    moveMan(2);
 }
 
 function moveLane3() {
-    moveCars(3);
+    moveWoman(3);
 }
 
 function moveLane5() {
-    moveCars(5);
+    moveMan(5);
 }
 
 function moveLane6() {
-    moveCars(6);
+    moveWoman(6);
 }
 
 function moveLane7() {
-    moveCars(7);
+    moveMan(7);
 }
 
-function moveCars(laneNum) {
-
+function moveMan(laneNum) {
+    let onTop = false;
     for (let i = laneNum * gridLength; i < (laneNum * gridLength) + gridLength; i++) {
-        if (cells[i].classList.contains("red-car-right")) {
-            cells[i].classList.remove("red-car-right");
+        if (cells[i].classList.contains("man-right")) {
 
+            if (!onTop) {
+                cells[i].classList.remove("man-right");
+            } else {
+                onTop = false;
+            }
+            
             if (i % gridLength == gridLength - 1) {
                 // checking if at right edge
                 console.log(i)
-                cells[i - (gridLength - 1)].classList.add("red-car-right");                
+                cells[i - (gridLength - 1)].classList.add("man-right");  
+                if (cells[i - (gridLength - 1)].classList.contains("man-right")) {
+                    onTop = true;
+                }
+                
                 console.log("at edge");
             } else {
-                cells[i + 1].classList.add("red-car-right");
+
+                if (cells[i + 1].classList.contains("man-right")) {
+                    onTop = true;
+                }
+
+                cells[i + 1].classList.add("man-right");
                 console.log("not at edge");
                 i++;
             }
+        }
+    }
+    lose();
+}
 
+function moveWoman(laneNum) {   
+    for (let i = (laneNum * gridLength) + (gridLength + 1); i >= (laneNum * gridLength); i--) {
+        if (cells[i].classList.contains("woman-left")) {
+            cells[i].classList.remove("woman-left");
+
+            if (i % gridLength == 0) {
+                cells[i + (gridLength - 1)].classList.add("woman-left");        
+            } else {
+                cells[i-1].classList.add("woman-left");
+                i--;
+            }
         }
     }
     lose();
@@ -180,10 +218,20 @@ function updateTime() {
 
 function initializeGrid() {
 
-    for (let i = 0; i < cells.length; i++) {
+    for (let i = 0; i < gridLength; i++) {
+        cells[i].classList.remove("table");
         cells[i].classList.remove("up");
-        cells[i].classList.remove("red-car-right");
     }
+
+    for (let i = gridLength; i < cells.length; i++) {
+        cells[i].classList.remove("up");
+        cells[i].classList.remove("man-right");
+        cells[i].classList.remove("woman-left");
+    }
+
+    // setting goal
+    const randomIndex = Math.floor(Math.random() * gridLength);
+    cells[randomIndex].classList.add("table");
 
     // setting player up
     let middleOfGrid = Math.floor(gridLength/2);
@@ -207,24 +255,31 @@ function initializeGrid() {
             continue;
         }
         beginningOfLane = i * gridLength;
-        // setting cars up
+
+        // setting people up
+
+        let pic;
+        if (i == 2 || i == 5 || i == 7) {
+            pic = "man-right";
+        } else {
+            pic = "woman-left";
+        }
 
         // every grid length/width of 5 add a car
-        let sub5gridLength = gridLength - 5;
-        // let count = 0;
+        let sub5gridLength = gridLength - 3;
+
         while (sub5gridLength >= 0) {
-            // count++;
             let offset = Math.floor(Math.random() * (gridLength));
-            if (cells[beginningOfLane + offset].classList.contains("red-car-right")) {
+            while (cells[beginningOfLane + offset].classList.contains(pic)) {
                 offset = Math.floor(Math.random() * (gridLength));
             }
-            cells[beginningOfLane + offset].classList.add("red-car-right");
-            sub5gridLength = sub5gridLength - 5;
+            cells[beginningOfLane + offset].classList.add(pic);
+            sub5gridLength = sub5gridLength - 3;
         }
     }
 }
 
-// adding functionality to move player's car
+// adding functionality to move player
 function movePlayer(e) {
     let checkIndex = currentIndex;
     switch(e.keyCode) {
@@ -264,7 +319,7 @@ function win() {
     let won = false;
 
     for (let i = 0; i < gridLength; i++) {
-        if (cells[i].classList.contains("up")) {
+        if (cells[i].classList.contains("up") &&  cells[i].classList.contains("table")) {
             won = true;
             break;
         }
@@ -289,7 +344,11 @@ function lose() {
     let lost = false;
 
     for (let i = 0; i < cells.length; i++) {
-        if (cells[i].classList.contains("red-car-right") && cells[i].classList.contains("up")) {
+        if (cells[i].classList.contains("man-right") && cells[i].classList.contains("up")) {
+            lost = true;
+            break;
+        }
+        if (cells[i].classList.contains("woman-left") && cells[i].classList.contains("up")) {
             lost = true;
             break;
         }
@@ -323,26 +382,6 @@ function stopGame() {
     clearInterval(lane5);
     clearInterval(lane6);
     clearInterval(lane7);
-
-
-}
-
-// moving obstacle cars left
-function moveCarLeft(carLeft) {
-    switch (true) {
-        case carLeft.classList.contains('c1'):
-            carLeft.classList.remove('c1')
-            carLeft.classList.add('c2')
-            break
-        case carLeft.classList.contains('c2'):
-            carLeft.classList.remove('c2')
-            carLeft.classList.add('c3')
-            break
-        case carLeft.classList.contains('c3'):
-            carLeft.classList.remove('c3')
-            carLeft.classList.add('c1')
-            break
-    }
 }
 
 function destroyGrid() {
@@ -351,27 +390,6 @@ function destroyGrid() {
     for (let i = 0; i < cellLength; i++) {
         cells[0].remove();  
     }
-    // const lanes = document.getElementsByClassName("lane");
-
-    // console.log("cells: " + cellLength);
-    // console.log("lanes: " + lanes.length);
-
-
-    // let j = 0;
-    // for (let i = 0; i < cellLength; i++) {
-
-    //     if (i != 0 && i % cellLength/9 == 0) {
-    //         console.log("lane" + i)
-    //         j++;
-    //     }
-
-    //     if (j == 9) {
-    //         break;
-    //     }
-
-    //     lanes[j].remove(cells[i]);
-
-    // }
 }
 
 function createGrid() {
