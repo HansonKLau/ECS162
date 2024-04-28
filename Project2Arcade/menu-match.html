@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu Match</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="menu-match.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="menu-match.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
@@ -14,6 +15,8 @@
     <!-- 
         Image Credits
 
+        Card images: https://www.freepik.com/free-vector/asia-food-icons-rolls-sushi-miso-soup-sashimi-restaurant-tasty-menu-japanese-chinese-nutrition_10600767.htm#query=sushi&position=3&from_view=author&uuid=448f3b8b-2368-4b9b-ab7c-982f4924e889
+        
      -->
   </head>
   <body>
@@ -49,20 +52,56 @@
     </div>
 
 
+    <!-- 
+
+        4 x 2 (match 2)
+
+        O O
+        O O
+        O O
+
+        5 X 3 (match 3)
+
+        O O O 
+        O O O 
+        O O O 
+        O O O
+        O O O
+
+        6 x 4 (match 4)
+
+        O O O O 
+        O O O O 
+        O O O O 
+        O O O O 
+        O O O O
+        O O O O
+
+     -->
+
+    <div class = "difficulty-selection">
+        <div class = "space-around">
+            <button id = "easy">Easy</button>
+            <button id = "medium">Medium</button>
+            <button id = "hard">Hard</button>
+        </div>
+    </div>
+
     <div id="game-window">
         <div id="grid">
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
-          <div class="lane"></div>
+          
         </div>
-      </div>
+    </div>
+
+    <div id="credit">
+        <a href="https://www.freepik.com/free-vector/asia-food-icons-rolls-sushi-miso-soup-sashimi-restaurant-tasty-menu-japanese-chinese-nutrition_10600767.htm#query=sushi&position=3&from_view=author&uuid=448f3b8b-2368-4b9b-ab7c-982f4924e889">Images by macrovector</a> on Freepik
+    </div>
+
+
+
+    <footer>
+        2024 &copy; Hanson Lau 
+    </footer>
 
   </body>
 

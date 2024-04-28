@@ -1,0 +1,112 @@
+
+
+
+
+
+.difficulty-selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+  
+.space-around {
+    justify-content: space-around;  
+}
+
+#game-window {
+    display: flex;
+    justify-content: center;
+
+    height: 100%;
+    /* height: 130%; */
+}
+
+#grid {
+
+    background-color: black;
+
+    /* display: flex; */
+    align-content: space-evenly;
+
+    justify-content: space-evenly;
+
+    padding: 1em;
+
+    width: 60%;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    /* z-index: 2; */
+}
+
+/* .row-behind {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 1;
+} */
+
+.card {
+    border: 3px solid red;
+    background-color: bisque;
+
+    margin-top: 1.5em;
+
+    height: 90px;
+    width: 145px;
+
+    transition: .5s;
+    z-index: 2;
+}
+
+.card1{
+    height: 65px;
+}
+
+.card2{
+    height: 0px;
+}
+
+/* .card-behind{
+    position: absolute;
+    border: 5px solid black;
+    background-color: aqua;
+    z-index: 1;
+
+    margin-top: 1.5em;
+
+    height: 130px;
+    width: 90px;
+} */
+
+/* .card3{
+    height: 65px;
+}
+
+.card4{
+    height: 130px;
+} */
+
+.card:hover {
+    background-color: rgb(136, 122, 106);
+}
+
+/* Images */
+/* Need 6 */
+
+.condiments {
+    background-image: url("./imgs/condiments-t.png");
+}
+
+
+#credit {
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+
+
