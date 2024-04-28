@@ -98,9 +98,41 @@
 /* Need 6 */
 
 .condiments {
-    background-image: url("./imgs/condiments-t.png");
+    background-image: url("./imgs/condiments.png");
+    background-repeat: no-repeat;
+    background-position: center;  
 }
 
+.temaki {
+    background-image: url("./imgs/temaki.png");
+    background-repeat: no-repeat;
+    background-position: center;  
+    background-size: 6em;
+}
+
+.nigiri {
+    background-image: url("./imgs/nigiri.png");
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+.miso {
+    background-image: url("./imgs/miso.png");
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+.ikura {
+    background-image: url("./imgs/ikura.png");
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+.sashimi {
+    background-image: url("./imgs/sashimi.png");
+    background-repeat: no-repeat;
+    background-position: center;  
+}
 
 #credit {
     margin-top: 5em;
