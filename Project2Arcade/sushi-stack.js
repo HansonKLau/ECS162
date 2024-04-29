@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // successful stack
                     numSushiStacked++;
                     clearInterval(dropTimerId);
-                    xspeed += 2;
+                    xspeed += 1.7;
 
                     // check if player won (this was 7th stack)
                     if (numSushiStacked == 7) {
