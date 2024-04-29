@@ -58,16 +58,12 @@
     height: 90px;
     width: 145px;
 
-    transition: .5s;
+    transition: 0.5s;
     z-index: 2;
 }
 
 .card1{
-    height: 65px;
-}
-
-.card2{
-    height: 0px;
+    height: 45px;
 }
 
 /* .card-behind{
@@ -132,6 +128,16 @@
     background-image: url("./imgs/sashimi.png");
     background-repeat: no-repeat;
     background-position: center;  
+}
+
+.card2{
+    height: 0px;
+}
+
+.hide-image {
+
+    background-image: none;
+
 }
 
 #credit {
