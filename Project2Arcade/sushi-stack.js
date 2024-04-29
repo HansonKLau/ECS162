@@ -1,4 +1,4 @@
-
+"use strict";
 
 /*
 
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                          ".\\imgs\\tuna.png", ".\\imgs\\shrimp.png"];
 
     let timerId;
+    let dropTimerId;
     let numSushiStacked = 0;
     let previousX = 0;
     let previousY = 0;

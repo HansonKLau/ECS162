@@ -1,16 +1,4 @@
 
-.result-container {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-  }
-  
-#result {
-    padding: 0;
-    font-size: 2em;
-    text-align: center;
-}
-
 .hide {
     display: none;
   }
@@ -46,7 +34,6 @@
 .row {
     display: flex;
     justify-content: space-evenly;
-    /* z-index: 2; */
 }
 
 .card {
@@ -141,17 +128,14 @@
     
     .temaki {
         background-size: 40px 40px;
-
     }
     
     .nigiri {
         background-size: 40px 40px;
-
     }
     
     .miso {
         background-size: 40px 40px;
-
     }
     
     .ikura {

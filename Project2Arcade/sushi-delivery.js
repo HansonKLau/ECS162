@@ -1,8 +1,18 @@
+"use strict";
+
 let gridLength = 5;
 let numberOfLanes = 9;
 let currentIndex;
 let time = 0.0;
 let timerId;
+
+let lane1;
+let lane2;
+let lane3;
+let lane4;
+let lane5;
+let lane6;
+let lane7;
 
 // getting all cells of the grid
 const cells = document.getElementsByClassName("cell");
@@ -260,7 +270,7 @@ function initializeGrid() {
             // skip safe lane
             continue;
         }
-        beginningOfLane = i * gridLength;
+        let beginningOfLane = i * gridLength;
 
         // setting people up
 

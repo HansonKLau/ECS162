@@ -1,3 +1,4 @@
+"use strict";
 
 document.addEventListener('DOMContentLoaded', () => {
     const navButton = document.getElementById("reveal-nav");

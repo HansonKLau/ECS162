@@ -134,6 +134,8 @@ body {
 }
 
 #reveal-nav {
+    text-decoration: none;
+
     height: 5px;
     width: 20px;
     background-color: rgb(197, 83, 83);
@@ -244,6 +246,18 @@ li:hover{
 a {
     text-decoration: none;
     color: black;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+#result {
+    padding: 0;
+    font-size: 2em;
+    text-align: center;
+    width: 50%;
 }
 
 .game {
