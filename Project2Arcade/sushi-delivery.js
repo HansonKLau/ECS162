@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGrid();
 
     const small = document.getElementById("grid5");
+    small.classList.add("diff-clicked");
     const medium = document.getElementById("grid10");
     const large = document.getElementById("grid15");
 
@@ -89,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function start() {
     if (timerId) {
+        const timeButton = document.getElementById("start-button");
+        timeButton.classList.remove("stop");
         stopGame();
 
     }   else {
@@ -100,6 +103,7 @@ function start() {
 
         const timeButton = document.getElementById("start-button");
         timeButton.textContent = "stop";
+        timeButton.classList.add("stop");
 
         time = 0;
 

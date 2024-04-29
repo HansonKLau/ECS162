@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById("grid");
 
     const easy = document.getElementById("easy");
+    easy.classList.add("diff-clicked");
     const medium = document.getElementById("medium");
     const hard = document.getElementById("hard");
 

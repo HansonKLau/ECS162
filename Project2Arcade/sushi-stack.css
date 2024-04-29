@@ -1,20 +1,4 @@
 
-.timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#start-button {
-color: blue;
-padding: .5em;
-margin-right: 1em;
-}
-
-.timer h3 {
-margin-left: 1em;
-}
-
 .result-container {
     display: flex;
     justify-content: center;

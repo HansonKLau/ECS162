@@ -201,11 +201,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function start() {
 
         if (updateTimerId) {
-
+            const timeButton = document.getElementById("start-button");
+            timeButton.classList.remove("stop");
             clearInterval(updateTimerId);
             restart();
 
         } else {
+
+            const timeButton = document.getElementById("start-button");
+            timeButton.textContent = "stop";
+            timeButton.classList.add("stop");
 
             createPiece();
             updateTimerId = setInterval(updateTime, 100);
