@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.classList.remove("med");
         grid.classList.remove("lar");
         makeGrid(2, 4);
-        
     }
     
     function makeMedium() {
@@ -85,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.classList.remove("med");
         grid.classList.add("lar");
         makeGrid(4, 6);
-        
     }
 
     function assignCards(matchSize, matches) {
@@ -202,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let i = 0; i < checkingLength; i++) {
                     checking[0].classList.add("matched");
                     checking[0].classList.remove("checking");
-                    // console.log("length now: " + checking.length);
                 }
 
             } else {
@@ -272,7 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < numOfRows; i++) {
             rows[0].remove();
         }
-
     }
 });
 

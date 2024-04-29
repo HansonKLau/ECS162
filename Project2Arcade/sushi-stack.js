@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function createPiece() {
 
         console.log("creating piece");
-
         document.addEventListener('keydown', dropPiece);
 
         // current sushi piece
@@ -96,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // checking that current sushi reached height of previous sushi
             if (y >= borderY - (numSushiStacked * (sushiPiece.height-23))  ) {
-                console.log("num stack: " + numSushiStacked);
 
                 // check if x is in appropriate range of previous x
                 if ( ((x > (previousX - sushiPiece.width/2)) && (x < (previousX + sushiPiece.width/2))) || numSushiStacked == 0) {
@@ -118,14 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         previousImg = sushiImages[index];
                         document.removeEventListener('keydown', dropPiece);
     
-                        // recursive ?!?!
-                        console.log("recurse?");
                         createPiece();
                     }                    
 
                 } else {
                     // end game (lose)
-
                     console.log("lose");
                     clearInterval(dropTimerId);
                     document.removeEventListener('keydown', dropPiece);

@@ -186,13 +186,11 @@ function moveMan(laneNum) {
             
             if (i % gridLength == gridLength - 1) {
                 // checking if at right edge
-                console.log(i)
                 cells[i - (gridLength - 1)].classList.add("man-right");  
                 if (cells[i - (gridLength - 1)].classList.contains("man-right")) {
                     onTop = true;
                 }
                 
-                console.log("at edge");
             } else {
 
                 if (cells[i + 1].classList.contains("man-right")) {
@@ -200,7 +198,6 @@ function moveMan(laneNum) {
                 }
 
                 cells[i + 1].classList.add("man-right");
-                console.log("not at edge");
                 i++;
             }
         }
