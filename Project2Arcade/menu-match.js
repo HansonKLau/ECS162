@@ -16,14 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     hard.addEventListener("click", makeHard);
 
     function makeEasy() {
+        grid.classList.remove("med");
+        grid.classList.remove("lar");
         makeGrid(2, 4);
     }
     
     function makeMedium() {
+        grid.classList.remove("lar");
+        grid.classList.add("med");
         makeGrid(3, 5);
+
     }
     
     function makeHard() {
+        grid.classList.remove("med");
+        grid.classList.add("lar");
         makeGrid(4, 6);
     }
 
@@ -102,10 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        if (matching) {
-
-            // check if all have been matched
-            if (checkingLength == matchSize) {
+        if (checkingLength == matchSize) {
+            if (matching) {
+                // check if all have been matched
                 console.log("one set matched");
                 // take "checking" class out, add "matched" class
                 for (let i = 0; i < checkingLength; i++) {
@@ -113,30 +119,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     checking[0].classList.remove("checking");
                     // console.log("length now: " + checking.length);
                 }
-            }
 
-        } else {
+            } else {
 
-            // flip all cards with "checking" class over
-            for (let i = 0; i < checkingLength; i++) {
+                // flip all cards with "checking" class over
+                for (let i = 0; i < checkingLength; i++) {
 
-                console.log("removing card");
-                setTimeout( function() {
-                    checking[i].classList.add("card2");
-                } , 1700);
+                    console.log("removing card");
+                    setTimeout( function() {
+                        checking[i].classList.add("card2");
+                    } , 1700);
 
-                setTimeout( function() {
-                    checking[i].classList.remove("card2");
-                    checking[i].classList.add("hide-image");
-                } , 2100);
+                    setTimeout( function() {
+                        checking[i].classList.remove("card2");
+                        checking[i].classList.add("hide-image");
+                    } , 2100);
+                }
 
-            }
-
-            for (let i = 0; i < checkingLength; i++) {
-                // console.log("length now: " + checking.length);
-                setTimeout( function() {
-                checking[0].classList.remove("checking");
-                } , 2100);
+                for (let i = 0; i < checkingLength; i++) {
+                    // console.log("length now: " + checking.length);
+                    setTimeout( function() {
+                    checking[0].classList.remove("checking");
+                    } , 2200);
+                }
             }
         }
     }
