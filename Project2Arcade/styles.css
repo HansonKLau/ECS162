@@ -130,7 +130,7 @@ body {
     display: flex;
     align-items: center;
 
-    z-index: 2;
+    z-index: 5;
 }
 
 #reveal-nav {
@@ -164,7 +164,6 @@ body {
 }
 
 #reveal-nav.hide{
-    /* transition-duration: 1s; */
     left: -13em;
 }
 
@@ -192,6 +191,8 @@ body {
     left: 0;
 
     position: fixed;
+
+    z-index: 4;
 }
 
 #nav-bar.hide {
