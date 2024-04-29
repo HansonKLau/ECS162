@@ -2,6 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    let time = 0.0;
+    let updateTimerId;
+
+    function updateTime() {
+        const currentTime = document.getElementById("seconds-elapsed");
+        time = time + 0.1;
+        currentTime.textContent = time.toFixed(1);
+    }
+
     const grid = document.getElementById("grid");
 
     const easy = document.getElementById("easy");
@@ -15,23 +24,48 @@ document.addEventListener('DOMContentLoaded', () => {
     medium.addEventListener("click", makeMedium);
     hard.addEventListener("click", makeHard);
 
+    function reset() {
+        // const currentTime = document.getElementById("seconds-elapsed");
+        // time = 0.0
+        // currentTime.textContent = time.toFixed(1);
+        const resultContainer = document.getElementsByClassName("result-container");
+        resultContainer[0].classList.add("hide");
+
+        if (updateTimerId) {
+            clearInterval(updateTimerId);
+            console.log("timer on");
+            time = 0.0;
+            updateTimerId = setInterval(updateTime, 100);
+
+        } else {
+            console.log("timer off");
+
+            time = 0.0;
+            updateTimerId = setInterval(updateTime, 100);
+        }
+    }
+
     function makeEasy() {
+        reset()
         grid.classList.remove("med");
         grid.classList.remove("lar");
         makeGrid(2, 4);
+        
     }
     
     function makeMedium() {
+        reset()
         grid.classList.remove("lar");
         grid.classList.add("med");
         makeGrid(3, 5);
-
     }
     
     function makeHard() {
+        reset()
         grid.classList.remove("med");
         grid.classList.add("lar");
         makeGrid(4, 6);
+        
     }
 
     function assignCards(matchSize, matches) {
@@ -82,12 +116,45 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout( function() {
                         cards[i].classList.remove("card2");
                         cards[i].classList.remove("hide-image");
-                    } , 500)
+                    } , 250)
 
                     checkMatch(matchSize, chosenImages[index]);
+                    checkWin();
                 }
                     
             });
+        }
+    }
+
+    function checkWin() {
+        const cards = document.getElementsByClassName("card");
+
+        let won = true;
+
+        for (let i = 0; i < cards.length; i++) {
+            if (!cards[i].classList.contains("matched")) {
+                won = false;
+                break;
+            }
+        }
+
+        if (won) {
+            clearInterval(updateTimerId);
+            const result = document.getElementById("result");
+            const resultContainer = document.getElementsByClassName("result-container");
+            resultContainer[0].classList.remove("hide");
+
+            if (time < 15) {
+                result.textContent = "Woah, that was quick.. It took only " + time.toFixed(1) + " seconds!";
+
+            } else if (time < 30) {
+                result.textContent = "Nice job! You finished in " + time.toFixed(1) + " seconds.";
+
+            } else {
+                result.textContent = "Took a while didn't it? It's a hard job. You matched them in " + time.toFixed(1) + " seconds!";
+
+            }
+
         }
     }
 
@@ -128,19 +195,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log("removing card");
                     setTimeout( function() {
                         checking[i].classList.add("card2");
-                    } , 1700);
+                    } , 1200);
 
                     setTimeout( function() {
                         checking[i].classList.remove("card2");
                         checking[i].classList.add("hide-image");
-                    } , 2100);
+                    } , 1500);
                 }
 
                 for (let i = 0; i < checkingLength; i++) {
                     // console.log("length now: " + checking.length);
                     setTimeout( function() {
                     checking[0].classList.remove("checking");
-                    } , 2200);
+                    } , 1600);
                 }
             }
         }
