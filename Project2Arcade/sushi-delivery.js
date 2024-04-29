@@ -385,6 +385,7 @@ function stopGame() {
 
     const timeButton = document.getElementById("start-button");
     timeButton.textContent = "start";
+    timeButton.classList.remove("stop");
 
     clearInterval(lane1);
     clearInterval(lane2);
