@@ -1,14 +1,4 @@
 
-/* .timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.timer h3 {
-    margin-left: 1em;
-}
-
 .result-container {
     display: flex;
     justify-content: center;
@@ -24,29 +14,17 @@
 .hide {
     display: none;
   }
-
-.difficulty-selection {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1em;
-}
   
-.space-around {
-    justify-content: space-around;  
-}
-
 #game-window {
     display: flex;
     justify-content: center;
 
     height: 100%;
-    /* height: 130%; */
 }
 
 #grid {
     background-color: black;
 
-    /* display: flex; */
     align-content: space-evenly;
     justify-content: space-evenly;
 
@@ -133,15 +111,58 @@
 }
 
 .hide-image {
-
     background-image: none;
-
 }
 
 #credit {
     margin-top: 0em;
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .card {
+        border: 3px solid red;
+        background-color: bisque;
+    
+        margin-top: 1.5em;
+    
+        height: 60px;
+        width: 115px;
+    
+        transition: 0.5s;
+        z-index: 2;
+    }
+
+    .condiments {
+        background-size: 40px 40px;
+    }
+    
+    .temaki {
+        background-size: 40px 40px;
+
+    }
+    
+    .nigiri {
+        background-size: 40px 40px;
+
+    }
+    
+    .miso {
+        background-size: 40px 40px;
+
+    }
+    
+    .ikura {
+        background-size: 40px 40px;
+
+    }
+    
+    .sashimi {
+        background-size: 40px 40px;
+    }
+
 }
 
 

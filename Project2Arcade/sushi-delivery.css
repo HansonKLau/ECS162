@@ -10,16 +10,6 @@ body {
   margin-bottom: 3em;
 }
 
-.difficulty-selection {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4em;
-}
-
-.space-around {
-  justify-content: space-around;
-}
-
 .result-container {
   display: flex;
   justify-content: center;

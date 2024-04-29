@@ -1,6 +1,23 @@
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    let difficulty = "easy";
+
+    function checkKey(e) {
+        if (e.keyCode === 82 || e.keyCode === 83) { // restart and start
+            if (difficulty == "easy") {
+                makeEasy();
+            } else if (difficulty == "medium") {
+                makeMedium();
+            } else {
+                makeHard();
+            }
+        } 
+    }
+
+    document.addEventListener('keydown', checkKey);
 
     let time = 0.0;
     let updateTimerId;
@@ -14,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById("grid");
 
     const easy = document.getElementById("easy");
-    easy.classList.add("diff-clicked");
     const medium = document.getElementById("medium");
     const hard = document.getElementById("hard");
 
@@ -47,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function makeEasy() {
+        difficulty = "easy";
         reset()
         grid.classList.remove("med");
         grid.classList.remove("lar");
@@ -55,13 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function makeMedium() {
+        difficulty = "medium";
         reset()
         grid.classList.remove("lar");
         grid.classList.add("med");
         makeGrid(3, 5);
     }
-    
+
     function makeHard() {
+        difficulty = "hard";
         reset()
         grid.classList.remove("med");
         grid.classList.add("lar");
