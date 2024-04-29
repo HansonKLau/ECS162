@@ -121,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     checkMatch(matchSize, chosenImages[index]);
                     checkWin();
                 }
-                    
             });
         }
     }
@@ -154,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 result.textContent = "Took a while didn't it? It's a hard job. You matched them in " + time.toFixed(1) + " seconds!";
 
             }
-
         }
     }
 

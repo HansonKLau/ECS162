@@ -77,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function dropPiece(e) {
 
-            if (e.keyCode == 40) {
+            e.preventDefault();
+
+            if (e.keyCode == 32) {
                 clearInterval(timerId);
                 dropTimerId = setInterval(dropping, 1);
             }

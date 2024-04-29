@@ -285,22 +285,27 @@ function initializeGrid() {
 function movePlayer(e) {
     let checkIndex = currentIndex;
     switch(e.keyCode) {
+
         case 37: // left arrow
+            e.preventDefault();
             if (currentIndex % gridLength !== 0) {
                 currentIndex -=1;
             }
             break;
         case 38: // up arrow
+            e.preventDefault();
             if (currentIndex - gridLength >=0) {
                 currentIndex -= gridLength;
             }
             break;
         case 39: // right arrow
+            e.preventDefault();
             if (currentIndex % gridLength < gridLength - 1) {
                 currentIndex +=1;
             }
             break;
         case 40: // down arrow
+            e.preventDefault();
             if (currentIndex + gridLength < gridLength * numberOfLanes) {
                 currentIndex += gridLength;
             }

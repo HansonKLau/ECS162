@@ -139,8 +139,7 @@ li:hover{
     flex-wrap: wrap;
     justify-content: space-around;
 
-    background-color: rgb(255, 127, 148);
-
+    background-color: #00000022;
     width: 80%;
 }
 
@@ -153,19 +152,60 @@ a {
     padding: 10px;
     width: 40%;
     transition-duration: 1s;
+
+    border: 5px solid black;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    /* background-color: #7df6cc87; */
 }
 
 .game-title {
+    font-family: "Rubik", sans-serif;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .game-img {
     display: flex;
     justify-content: center;
+    margin-bottom: 1em;
+}
+
+.game-description {
+
+    text-align: center;
+    
+}
+
+.game-intro {
+    text-align: center;
+    padding: 0 8em;
+
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 2em;
+}
+
+.control-title {
+
+    font-size: 2em;
+
+}
+
+.controls {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    font-family: "Anton", sans-serif;
 }
 
 .game:hover{
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: rgba(0, 0, 0, 0.750);
+    color: white;
 }
 
 .smaller-picture {
@@ -189,9 +229,48 @@ footer {
     z-index: -1;
 }
 
-/* .test{
-    margin-top: 500em;
-    height: 50em;
-    background-color: blueviolet;
+.desc {
+    display: flex;
+    justify-content: center;
     text-align: center;
-} */
+    padding: 0 10em;
+
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5em;
+}
+
+.bigger-picture {
+    height: 15em;
+    width: 15em;
+    justify-self: center;
+    border-radius: 10px;
+}
+
+.about-me {
+    padding: 1em;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 7em;
+    padding-bottom: 7em;
+}
+
+.left-half {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.right-half {
+    width: 50%;
+    align-content: center;
+}
+
+.box-paragraph {
+    font-family: "DM Sans", sans-serif;
+    text-align: center;
+    font-size: 20px;
+    padding-left: 2em;
+    padding-right: 4em;
+}
